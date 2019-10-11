@@ -472,7 +472,7 @@ def train(args):
     params.add_hparam("vocabulary", vocabulary)
 
     if args.emb_path:
-        if args.emb_path.find("glove") > 0:
+        if args.emb_path.find("glove") >= 0:
             emb = load_glove_embedding(args.emb_path,
                                        params.vocabulary["inputs"])
         else:
@@ -567,7 +567,7 @@ def predict(args):
     params.add_hparam("vocabulary", vocabulary)
 
     if args.emb_path:
-        if args.emb_path.find("glove") > 0:
+        if args.emb_path.find("glove") >= 0:
             emb = load_glove_embedding(args.emb_path, None)
         else:
             emb = np.loadtxt(args.emb_path).astype("float32")
@@ -693,7 +693,7 @@ def ensemble(args):
     params.parse(args.decoding_params)
 
     if args.emb_path:
-        if args.emb_path.find("glove") > 0:
+        if args.emb_path.find("glove") >= 0:
             emb = load_glove_embedding(args.emb_path, None)
         else:
             emb = np.loadtxt(args.emb_path).astype("float32")
